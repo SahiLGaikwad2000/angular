@@ -1,0 +1,163 @@
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    min-height: 100%;
+    background: url('../assets/images/main-background.jpg');
+    background-size: cover;
+    margin-bottom: 60px;
+}
+
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    line-height: 60px;
+    background-color: #F0EBE3;
+}
+
+nav.navbar {
+    background: #1F4690;
+}
+
+.navbar-nav {
+    display: flex;
+    gap: 10px;
+}
+
+p {
+    padding: 0 !important;
+    margin: 0;
+}
+
+.color-white {
+    color: #ffffff;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: #fff;
+}
+
+    .navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link:hover {
+        color: #b0e0e6;
+    }
+
+.register-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+}
+
+
+.form-floating {
+    width: 100%;
+}
+
+.display-name-right {
+    display: none;
+}
+
+.display-name-top {
+    display: block;
+}
+.hide-small {
+    display: none;
+}
+
+
+.btn-primary {
+    background-color: #53BF9D;
+    border-color: #55D8C1;
+}
+
+    .btn-primary:hover {
+        color: #000000;
+        background-color: #fff;
+        border-color: #55D8C1;
+    }
+
+.navbar-light .navbar-toggler :active {
+    color: lightgrey;
+}
+table{
+    background-color: white;
+}
+table tr:nth-child(odd) {
+    background: #f8f8f8;
+}
+
+.disabled{
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+.btn {
+    min-width: min(100%, 70px);
+}
+
+.display-4{
+    font-weight: 800;
+}
+.display-name {
+    color: #3333cc;
+    /*text-shadow: #1F4690 0px 0 4px;*/
+}
+.bg-box {
+    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+    padding: 10px 0;
+    background: white;
+}
+.register-data {
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    padding: 30px 15px !important;
+}
+
+.register-data-row {
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+}
+
+    .register-data-row > * {
+        flex: 1 1 100%;
+    }
+
+
+@media(min-width: 768px) {
+    .hide-small {
+        display: revert;
+    }
+
+    .register-data-row {
+        flex-direction: row;
+    }
+
+    .form-floating {
+        width: 50%;
+    }
+
+    .display-name-right {
+        display: block;
+    }
+
+    .display-name-top {
+        display: none;
+    }
+}

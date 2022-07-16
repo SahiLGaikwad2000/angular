@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32616.157
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravelBookingWebApi", "TravelBookingWebApi\TravelBookingWebApi.csproj", "{28A7AC6F-30A4-46C4-A797-365D11C98AA9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravelBookingUI", "TravelBookingUI\TravelBookingUI.csproj", "{144C5300-D2AF-4D07-86D6-AF0D88C14D08}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{28A7AC6F-30A4-46C4-A797-365D11C98AA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28A7AC6F-30A4-46C4-A797-365D11C98AA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28A7AC6F-30A4-46C4-A797-365D11C98AA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28A7AC6F-30A4-46C4-A797-365D11C98AA9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{144C5300-D2AF-4D07-86D6-AF0D88C14D08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{144C5300-D2AF-4D07-86D6-AF0D88C14D08}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{144C5300-D2AF-4D07-86D6-AF0D88C14D08}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{144C5300-D2AF-4D07-86D6-AF0D88C14D08}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {62B8F8B0-CAEB-438D-B93F-B3987C171D18}
+	EndGlobalSection
+EndGlobal

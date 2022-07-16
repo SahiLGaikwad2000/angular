@@ -1,0 +1,85 @@
+﻿
+@page
+@model RegisterDataModel
+@{
+    ViewData["Title"] = "Register";
+    Layout = "/Areas/Identity/Pages/_AuthLayout.cshtml";
+}
+<div class="register-header">
+                    <h3>Add User</h3>
+        <h5>This form will add new users and then the user should be ready to log in.</h5>
+        
+
+</div>
+
+            <hr />
+        <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
+
+
+            <div class="register-data bg-box">
+    
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                   <div class="register-data-row">
+                 <div class="form-floating">
+                    <input asp-for="Input.Name" class="form-control" autocomplete="name" aria-required="true" />
+                    <label asp-for="Input.Name" class="form-label"></label>
+                    <span asp-validation-for="Input.Name" class="text-danger"></span>
+                </div>
+                   <div class="form-floating">
+                    <input asp-for="Input.UserId" class="form-control" autocomplete="username" aria-required="true" />
+                    <label asp-for="Input.UserId" class="form-label"></label>
+                    <span asp-validation-for="Input.UserId" class="text-danger"></span>
+                </div>
+            </div>
+           
+             <div class="register-data-row">
+                 <div class="form-floating">
+                <input asp-for="Input.LoginId" class="form-control" autocomplete="email" aria-required="true" />
+                <label asp-for="Input.LoginId"></label>
+                <span asp-validation-for="Input.LoginId" class="text-danger"></span>
+            </div>
+          <div class="form-floating">
+           
+                    @*
+                    <input asp-for="Input.UserTypeId" class="form-control" autocomplete="name" aria-required="true" />*@
+                    <select asp-for="Input.UserTypeId" class="form-control" autocomplete="name" aria-required="true" >
+
+                        <option value="EMPLOYEE">Employee</option>
+                        <option value="MANAGER">Manager</option>
+                        <option value="TRAVEL_AGENT">Travel Agent</option>
+
+                    </select>
+                    
+                    <label asp-for="Input.UserTypeId" class="form-label"></label>
+                    <span asp-validation-for="Input.UserTypeId" class="text-danger"></span>
+                </div>
+             </div>
+           
+              <div class="register-data-row">
+                       <div class="form-floating">
+                <input asp-for="Input.Password" class="form-control" autocomplete="new-password" aria-required="true" />
+                <label asp-for="Input.Password"></label>
+                <span asp-validation-for="Input.Password" class="text-danger"></span>
+            </div>
+            <div class="form-floating">
+                <input asp-for="Input.ConfirmPassword" class="form-control" autocomplete="new-password" aria-required="true" />
+                <label asp-for="Input.ConfirmPassword"></label>
+                <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+            </div>
+              </div>
+              
+            <button id="registerSubmit" type="submit" class=" btn  btn-primary"><i class="fa fa-address-book-o"></i>Add User</button>
+            </div>
+         
+           
+            
+                       
+       
+       
+        </form>
+
+    
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

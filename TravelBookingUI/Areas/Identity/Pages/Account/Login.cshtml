@@ -1,0 +1,45 @@
+﻿@page
+@model LoginDataModel
+
+
+@{
+    ViewData["Title"] = "Log in";
+    Layout = "/Areas/Identity/Pages/_AuthLayout.cshtml";
+}
+<div class="register-header">
+<h3>@ViewData["Title"]</h3>
+      <h5>Use a local account to log in.</h5>
+        
+
+</div>
+                <hr />
+
+          <form method="post">
+
+            
+                <div class="form-floating w-100">
+                    <input asp-for="Input.LoginId" class="form-control" autocomplete="username" id="loginid" aria-required="true" />
+                    <label asp-for="Input.LoginId" class="form-label"></label>
+                    <span asp-validation-for="Input.LoginId" class="text-danger"></span>
+                </div>
+                <div class="form-floating w-100">
+                    <input asp-for="Input.Password" class="form-control" autocomplete="current-password" id="password" aria-required="true" />
+                    <label asp-for="Input.Password" class="form-label"></label>
+                    <span asp-validation-for="Input.Password" class="text-danger"></span>
+                </div>
+                       <div class="register-data bg-box">
+                       <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div>
+                    <button id="login" type="submit" class="w-100 btn btn-lg btn-primary">Log in</button>
+                </div>
+                       </div>
+          
+                
+    
+  
+                
+          </form>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+
+}

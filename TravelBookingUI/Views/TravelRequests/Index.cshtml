@@ -1,0 +1,135 @@
+﻿@model IEnumerable<TravelBookingUI.Models.JourneyRequest>
+@using Microsoft.AspNetCore.Identity
+@using TravelBookingUI.Areas.Identity
+@using TravelBookingUI.Models
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@inject UserManager<ApplicationUser> UserManager
+<h1>Bookings</h1>
+
+@if(Context.Session.GetString("UserTypeId") != null)
+{
+    @if(Context.Session.GetString("UserTypeId").ToUpper() == "EMPLOYEE")
+{
+    <p>
+        <a asp-action="Create">Raise a New Request!</a>
+    </p>
+}    
+}
+
+
+<table class="table">
+    <thead>
+        <tr>
+            @if(Context.Session.GetString("UserTypeId") != null && Context.Session.GetString("UserTypeId").ToUpper() != "EMPLOYEE")
+            {
+             
+             <th>
+                Requested By
+            </th>   
+            }
+            <th>
+                @Html.DisplayNameFor(model => model.Source)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Destination)
+            </th>
+           
+            <th>
+               Travel Date & Time
+            </th>
+            <th class="hide-small">
+                Mode of Travel
+            </th>
+            <th class="hide-small">
+                Current Request Status
+            </th>
+         
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null)
+        {
+            @foreach (var item in Model) {
+        <tr>
+            
+                   @if(Context.Session.GetString("UserTypeId").ToUpper() != "EMPLOYEE")
+                    {
+                          <td>            
+                            @item.UserId
+                         </td>
+                    }
+          
+            <td>
+                @Html.DisplayFor(modelItem => item.Source)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Destination)
+            </td>
+         
+            <td>
+                @Html.DisplayFor(modelItem => item.TravelDate)
+            </td>
+            <td class="hide-small">
+                @Html.DisplayFor(modelItem => item.TravelMode)
+            </td>
+           
+                        @if(item.CurrentStatus.ToUpper() == "SUBMITTED")
+                        {
+                             <td class="hide-small">
+                            Pending Approval
+                            </td>
+                        }
+                        @if(item.CurrentStatus.ToUpper() == "APPROVED")
+                        {
+                             <td class="hide-small">
+                        Approved By Manager
+                            </td>
+                        }
+                        @if(item.CurrentStatus.ToUpper() == "DECLINED")
+                        {
+                             <td class="hide-small">
+                         Rejected By Manager
+                            </td>
+                        }
+
+                        @if(item.CurrentStatus.ToUpper() == "BOOKED")
+                        {
+                             <td class="hide-small">
+                          Booking Confirmed
+                            </td>
+                        }
+
+                        @if(item.CurrentStatus.ToUpper() == "CANCELED")
+                        {
+                             <td class="hide-small">
+                          Booking Not Available
+                            </td>
+                        }
+
+                  
+       
+            <td>
+  @if((Context.Session.GetString("UserTypeId").ToUpper() == "ADMIN") || ( Context.Session.GetString("UserTypeId").ToUpper() == "TRAVEL_AGENT" && item.CurrentStatus.ToUpper() == "APPROVED") || (Context.Session.GetString("UserTypeId").ToUpper() == "MANAGER" && item.CurrentStatus.ToUpper() == "SUBMITTED"))
+                    {
+
+                        <a asp-action="Edit" class="btn btn-sm btn-primary m-1" asp-route-id="@item.RequestId">Edit</a> 
+                    }
+                     <a asp-action="Details" class="btn btn-sm btn-secondary m-1" asp-route-id="@item.RequestId">Details</a>
+                    @if((Context.Session.GetString("UserTypeId").ToUpper() == "ADMIN") ||( Context.Session.GetString("UserTypeId").ToUpper() == "EMPLOYEE"))
+                    {
+                        <a asp-action="Delete" class="btn btn-sm btn-danger m-1" asp-route-id="@item.RequestId">Delete</a>
+                    }
+            </td>
+                  
+           
+        </tr>
+}
+        }
+
+
+    </tbody>
+</table>

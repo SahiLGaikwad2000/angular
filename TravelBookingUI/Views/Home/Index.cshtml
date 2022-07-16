@@ -1,0 +1,50 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@using Microsoft.AspNetCore.Identity
+
+
+
+@if (Context.Session.GetString("Name") == null)
+{
+<div class="text-center">
+    <h1 class="display-4">TravelApprover</h1>
+    <h6>Please login to see the dashboard </h6>
+</div>
+    
+}
+@if (Context.Session.GetString("Name") != null)
+{
+<div class="text-center">
+    <h1 class="display-4 bold">Welcome <span class="display-name">@(Context.Session.GetString("Name"))</span> </h1>
+    <div>
+         <h6> Based on your role.  @(Context.Session.GetString("UserTypeId"))</h6>
+        @if(Context.Session.GetString("UserTypeId") == "ADMIN")
+        {
+            <h6>You can add / edit / delete users.</h6>
+            
+            <h6>You can see and edit all requests</h6>
+        }
+        @if(Context.Session.GetString("UserTypeId") == "MANAGER")
+        {
+            
+           <h6>You can raise a travel request which will be approved by your manager (or admin if you dont have a manager assigned)</h6>
+            <h6>You can see all the requests by your direct reporties.</h6>
+            <h6>You can approve / decline requests.</h6>
+            
+        }
+        @if(Context.Session.GetString("UserTypeId") == "EMPLOYEE")
+        {
+           <h6>You can raise a travel request which will be approved by your manager.</h6>
+            
+        }
+         @if(Context.Session.GetString("UserTypeId") == "TRAVEL_AGENT")
+        {
+           <h6>You can confirm/decline the bookings based on availibility and apporval.</h6>
+            
+        }
+    </div>
+   
+    </div>
+    
+}

@@ -1,0 +1,64 @@
+﻿@model TravelBookingUI.Models.JourneyRequest
+@using Microsoft.AspNetCore.Identity
+@using TravelBookingUI.Areas.Identity
+@using TravelBookingUI.Models
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Request New Travel</h1>
+
+<h4>Add new Request</h4>
+<hr />
+<div class="row bg-box">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+   
+            <div class="form-group">
+                <label asp-for="Source" class="control-label"></label>
+                <input asp-for="Source" class="form-control" id="create-request-source" />
+                <span asp-validation-for="Source" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Destination" class="control-label"></label>
+                <input asp-for="Destination" class="form-control"  id="create-request-destination" />
+                <span asp-validation-for="Destination" class="text-danger"></span>
+            </div>
+     
+            <div class="form-group">
+                <label asp-for="TravelDate" class="control-label"></label>
+                <input asp-for="TravelDate" class="form-control"  id="DateRequestDeadLine" />
+                <span asp-validation-for="TravelDate" class="text-danger"></span>
+             
+            </div>
+            <div class="form-group">
+                <label asp-for="TravelMode" class="control-label"></label>
+                           <select asp-for="TravelMode" class="form-control" autocomplete="name" aria-required="true" id="create-request-travelmode">
+
+                        <option value="FLIGHT">Flight</option>
+                        <option value="TRAIN">Train</option>
+                        <option value="BUS">Bus</option>
+                                                <option value="CAR">Car</option>
+                    </select>
+                <span asp-validation-for="TravelMode" class="text-danger"></span>
+            </div>
+            <div class="text-danger">
+                @Html.ValidationSummary(false)
+            </div>
+            <div class="form-group pt-3">
+                <input type="submit" value="Create" class="btn btn-primary"  />
+            </div>
+        </form>
+    </div>
+    <div>
+    <a asp-action="Index">Back to All Requests</a>
+</div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

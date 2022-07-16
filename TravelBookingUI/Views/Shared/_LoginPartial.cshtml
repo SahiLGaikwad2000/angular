@@ -1,0 +1,35 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using TravelBookingUI.Models
+
+<ul class="navbar-nav">
+@if (Context.Session.GetString("Name") != null)
+{
+    <li class="nav-item">
+        @*asp-page="/Account/Manage/Index"*@
+        <div id="manage" class="nav-link display-name-right" title="Manage">Hello @(Context.Session.GetString("Name"))!</div>
+    </li>
+    
+        @if(Context.Session.GetString("UserTypeId") == "ADMIN")
+        {
+               <li class="nav-item">
+        <a class="nav-link" id="register" asp-area="Identity" asp-page="/Account/Register">Add New Users</a>
+    </li>
+     <li class="nav-item">
+        <a class="nav-link" id="modyfy" asp-area="" asp-controller="Users" asp-action="ListUsers">Modify Users</a>
+    </li>
+        }
+
+ 
+    <li class="nav-item">
+            <a class="nav-link" id="logout" onclick="location.href='@Url.Action("Logout", "Users")'"><i class="fa fa-power-off"></i> Logout</a>
+
+
+    </li>
+}
+else
+{
+    <li class="nav-item">
+        <a class="nav-link" id="login" asp-area="Identity" asp-page="/Account/Login" >Login</a>
+    </li>
+}
+</ul>

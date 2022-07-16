@@ -1,0 +1,74 @@
+﻿@model List<TravelBookingUI.Models.ApplicationUser>
+@using Microsoft.AspNetCore.Identity
+@using TravelBookingUI.Models
+@{
+    ViewData["Title"] = "All Users";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@inject UserManager<ApplicationUser> UserManager
+
+<h1>All Users</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+             <th>
+                Employee Id
+            </th>
+            <th class="hide-small">
+                Name
+            </th>
+            <th class="hide-small">
+                User Type
+            </th>
+           
+            <th>
+                Login Id
+            </th>
+            <th class="hide-small">
+               Manager User Id
+            </th>
+           
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@if( Model != null && Context.Session.GetString("Name") != null) {
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @item.UserId
+            </td>
+            <td class="hide-small">
+                @item.Name
+            </td>
+            <td class="hide-small">
+                @item.UserTypeId
+            </td>
+         
+            <td >
+                @item.LoginId
+            </td>
+            <td class="hide-small">
+                @item.ManagerUserId
+            </td>
+                        
+             <td>
+                 
+                 @if(item.UserTypeId != "ADMIN")   {
+                       <a asp-action="EditUser" class="btn btn-sm btn-primary m-1" asp-route-id="@item.LoginId">Edit</a>
+                <a asp-action="DeleteUser" class="btn btn-sm btn-danger m-1" asp-route-id="@item.LoginId">Delete</a>
+                 }
+
+                
+            </td>
+     
+        </tr>
+}
+}
+@if( Model == null ){
+    <div>No Users Found!</div>
+}
+
+    </tbody>
+</table>
