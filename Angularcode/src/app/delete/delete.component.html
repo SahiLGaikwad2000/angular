@@ -1,0 +1,17 @@
+<p>delete works!</p>
+<h2>Are You Sure You Want To Delete?</h2>
+
+<div >
+
+    source:{{empdetail.source}}<br><br>
+    destination:{{empdetail.destination}}<br><br>
+    userid:{{usrname}}<br><br>
+    travel date:{{empdetail.travelDate.split("T")[0]}} {{empdetail.travelDate.split("T")[1]}}<br><br>
+    travel mode:{{empdetail.travelMode}}<br><br>
+    status :{{empdetail.currentStatus}}<br><br>
+    <button (click)="chkdelete()">Delete</button>
+
+    <nav>
+        <a routerLink="/login">Back to list</a>
+    </nav>
+</div>

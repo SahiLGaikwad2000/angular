@@ -1,0 +1,48 @@
+<!-- 
+
+
+
+<div>
+  <button (click)="chkclick()">click</button>
+</div>
+<div>
+  <button (click)="chkclick1()">click</button>
+</div>
+
+<div>
+  <button (click)="chkclick2()">click</button>
+</div>
+
+
+
+<div class="container">
+ <table class="table table-trapped">
+  <thead>
+    <tr>
+      <th>Source</th>
+      <th>Destination</th>
+      <th>Travel Date</th>
+      <th>Mode</th>
+      <th>Status</th>
+    </tr> 
+  </thead>
+  
+  <tbody *ngFor="let f of member">
+    
+  <tr *ngFor="let f of member">
+    
+    
+      <tr>
+    
+    <td>{{f.source}}</td>
+    <td>{{f.destination}}</td>
+    <td>{{f.travelDate.split("T")[0]}} {{f.travelDate.split("T")[1]}}</td>
+    <td>{{f.travelMode}}</td>
+    <td>{{f.currentStatus}}</td>
+
+  </tr>
+  </tbody>
+ </table>
+</div> -->
+
+<router-outlet></router-outlet>

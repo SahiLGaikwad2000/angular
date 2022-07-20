@@ -118,6 +118,15 @@ namespace TravelBookingWebApi.Controllers
             return context.Users != null ? Ok(await context.Users.ToListAsync()) : StatusCode(StatusCodes.Status500InternalServerError, new { Status = "Error", Message = "User not found" });
         }
 
+        [HttpGet]
+        [Route("GetAllRequest")]
+        public async Task<IActionResult> GetAllRequest()
+        {
+            return context.JourneyRequests != null ? Ok(await context.JourneyRequests.ToListAsync()) : StatusCode(StatusCodes.Status500InternalServerError, new { Status = "Error", Message = "User not found" });
+        }
+
+
+
         /*
       * GetAllUsersBasedOnId Method 
       * endpoint GetAllUsersBasedOnId
