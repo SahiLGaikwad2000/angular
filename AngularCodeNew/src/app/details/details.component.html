@@ -1,0 +1,14 @@
+<p>details works!</p>
+<div >
+
+    source:{{empdetail.source}}<br><br>
+    destination:{{empdetail.destination}}<br><br>
+    userid:{{usrname}}<br><br>
+    travel date:{{empdetail.travelDate.split("T")[0]}} {{empdetail.travelDate.split("T")[1]}}<br><br>
+    travel mode:{{empdetail.travelMode}}<br><br>
+    status :{{empdetail.currentStatus}}<br><br>
+
+    <nav>
+        <button (click)="route()">Back to list</button>
+    </nav>
+</div>

@@ -1,0 +1,38 @@
+<p>edit works!</p>
+<form #edit="ngForm">
+
+
+    source:{{empdetail.source}}<br><br>
+    destination:{{empdetail.destination}}<br><br>
+    userid:{{usrname}}<br><br>
+    travel date:{{empdetail.travelDate.split("T")[0]}} {{empdetail.travelDate.split("T")[1]}}<br><br>
+    travel mode:{{empdetail.travelMode}}<br><br>
+    status :
+    <select *ngIf="usrid=='MANAGER'" name="status" id="status" ngModel>
+        <option name="approved" value="APPROVED">Approved By Manager</option>
+        <option name="rejected" value="REJECTED">Rejected By Manager</option>
+        
+      
+      {{empdetail.currentStatus}}</select>
+
+      <select *ngIf="usrid=='TRAVEL_AGENT'" name="status" id="status" ngModel>
+        <option name="Booking Confirmed" value="Booking Confirmed">Booking Confirmed</option>
+        <option name="Booking Not Available" value="Booking Not Available">Booking Not Available</option>
+        
+      
+      {{empdetail.currentStatus}}</select>
+
+      <select *ngIf="usrid=='ADMIN'" name="status" id="status" ngModel>
+        <option name="approved" value="APPROVED">Approved By Manager</option>
+        <option name="rejected" value="REJECTED">Rejected By Manager</option>
+        <option name="Booking Confirmed" value="Booking Confirmed">Booking Confirmed</option>
+        <option name="Booking Not Available" value="Booking Not Available">Booking Not Available</option>
+        
+      
+      {{empdetail.currentStatus}}</select><br><br>
+    <button (click)="updatechk(edit.value)">Update</button>
+    <nav>
+        <button (click)="route()">Back to list</button>
+    </nav>
+
+</form>

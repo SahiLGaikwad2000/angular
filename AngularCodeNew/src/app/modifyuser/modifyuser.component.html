@@ -1,0 +1,30 @@
+<p>modifyuser works!</p>
+
+<table >
+    <thead>
+      <tr >
+        <th>Employee Id</th>
+        <th>Name</th>
+        <th>User Type</th>
+        <th>Login Id</th>
+        <th>Manager User Id</th>
+        
+      </tr> 
+
+
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let f of members">
+            <td>{{f.userId}}</td>
+            <td>{{f.name}}</td>
+            <td>{{f.userTypeId}}</td>
+            <!-- <td>{{f.travelDate.split("T")[0]}} {{f.travelDate.split("T")[1]}}</td> -->
+            <td>{{f.loginId}}</td>
+            <td>{{f.managerUserId}}</td>
+            <button (click)="editchk(f)">Edit</button>
+            <button (click)="deletechk(f)">Delete</button>
+        </tr>
+    </tbody>
+</table>
+

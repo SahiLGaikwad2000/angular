@@ -1,0 +1,23 @@
+<p>editadmin works!</p>
+<form #edit="ngForm">
+    UserId<br>{{empdetail.userId}}<br>
+    LoginId<br>{{empdetail.loginId}}<br>
+    Name<br><input name="Name"  [(ngModel)]="empdetail.name"><br>
+    <label>UserType</label><select id="sel" ngModel name="sel">
+        <option name="EMPLOYEE" value="EMPLOYEE">EMPLOYEE</option>
+        <option name="MANAGER" value="MANAGER">MANAGER</option>
+        <option name="TRAVEL_AGENT" value="TRAVEL_AGENT">TRAVEL_AGENT</option>
+
+
+
+    </select><br><br>
+
+
+
+    Manager UserId<br><select ngModel name="manid">
+        <option *ngFor="let f of role" value={{f}} >{{f}}</option>
+            
+    </select><br>
+    <button (click)="updateclick(edit.value)">Update</button>
+
+</form>

@@ -1,0 +1,33 @@
+<p>requestcreate works!</p>
+<form  #userlogin = "ngForm">
+    <div class="container">
+      <h1>Raise Request</h1>
+      
+      <hr>
+  
+      <label for="source"><b>Source</b></label><br>
+      <input type="text" placeholder="Enter source" name="source" id="source" required ngModel><br>
+  
+      <label for="destination"><b>Destination</b></label><br>
+      <input type="text" placeholder="Enter destination" name="destination" id="destination" required ngModel><br>
+  
+      <label for="traveldate"><b>travelDate</b></label><br>
+      <input type="datetime-local" placeholder="travel date" name="traveldate" id="travel date" required ngModel><br>
+       
+      <label for="mode"><b>travelMode</b></label><br>
+      <select name="mode" id="mode" ngModel>
+        <option value="Flight">Flight</option>
+        <option value="Train">Train</option>
+        <option value="Bus">Bus</option>
+        <option value="Car">Car</option>
+      </select> 
+      
+      <br><br>
+  
+      
+      <button type="button" class="createbtn" (click)="chkclick(userlogin.value)">Create</button>
+    </div>
+  
+    
+  </form>
+  
