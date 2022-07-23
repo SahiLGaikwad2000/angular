@@ -1,40 +1,35 @@
 <p>adminlogin works!</p>
-<h1>Welcome  {{username}}</h1>
-<!-- <button (click)="trq()">TravelRequest</button> -->
-<button (click)="adduser()">AddUser</button>
+<button (click)="toggledisplay()">Travel Request</button>
+<button (click)="adduser()">Add User</button>
+<button (click)="modifyuser()">Modify User</button>
+<button routerLink="/"  >Logout</button>
+<table  *ngIf="display">
+    <thead>
+      <tr>
+        <th>Requested by</th>
+        <th>Source</th>
+        <th>Destination</th>
+        <th>Travel Date</th>
+        <th>Mode</th>
+        <th>Current Request Status</th>
+      </tr> 
 
 
-<!-- <button routerLink="/Createreq">Raise Request</button> -->
-<div class="container" id="view">
-    <table class="table table-trapped">
-     <thead >
-       <tr>
-         <th>Source</th>
-         <th>Destination</th>
-         <th>Travel Date</th>
-         <th>Mode</th>
-         <th>Status</th>
-       </tr> 
-     </thead>
-     
-     <tbody>
-       
-     <tr *ngFor="let f of member">
-       
-       
-         
-       
-       <td>{{f.source}}</td>
-       <td>{{f.destination}}</td>
-       <td>{{f.travelDate.split("T")[0]}} {{f.travelDate.split("T")[1]}}</td>
-       <td>{{f.travelMode}}</td>
-       <td>{{f.currentStatus}}</td>
-        <button  (click)="detailchk(f)">Details</button>
-        <button *ngIf="f.currentStatus=='SUBMITTED'" (click)="editchk(f)">Edit</button>
-    
-    
-     </tr>
-     </tbody>
-    </table>
-   </div> 
+    </thead>
 
+    <tbody>
+        <tr *ngFor="let f of members">
+            <td>{{f.name}}</td>
+            <td>{{f.source}}</td>
+            <td>{{f.destination}}</td>
+            <td>{{f.travelDate.split("T")[0]}} {{f.travelDate.split("T")[1]}}</td>
+            <td>{{f.travelMode}}</td>
+            <!-- <td>{{f.currentStatus}}</td> -->
+            <button (click)="editchk(f)">Edit</button>
+            <button (click)="deletechk(f)">Delete</button>
+            <button (click)="detailchk(f)">Details</button>
+        </tr>
+    </tbody>
+</table>
+
+  

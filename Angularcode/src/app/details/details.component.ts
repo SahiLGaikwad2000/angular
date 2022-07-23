@@ -14,7 +14,7 @@ usrname:any
 constructor(private router: Router) {}
 
  
-
+  
   ngOnInit(): void {
     GlobalConstants.display=true
     this.empdetail=GlobalConstants.detail
@@ -22,8 +22,10 @@ constructor(private router: Router) {}
     
     console.log("in details");
     
-    console.log(this.empdetail.requestId)
+    console.log(this.empdetail)
 this.usrname=GlobalConstants.username
+console.log(this.usrname);
+
 
   }
 

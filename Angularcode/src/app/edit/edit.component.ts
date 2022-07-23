@@ -55,7 +55,8 @@ export class EditComponent implements OnInit {
   }
  
   if(res.ok){
-    this.router.navigateByUrl('/manager')
+    this.route()
+    // this.router.navigateByUrl('/manager')
   }
   else{
     this.router.navigateByUrl('/edit')

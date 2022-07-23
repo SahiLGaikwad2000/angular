@@ -35,8 +35,35 @@ export class DeleteComponent implements OnInit {
     apires=await res.json()
     // console.log(apires);
     // GlobalConstants.display=true
+    if(res.ok){
+      this.route()
+      
+      
     
-    this.router.navigateByUrl("/login")
+    // this.router.navigateByUrl("/login")
+    }
+  
+    
+  }
+  route(){
+    if(GlobalConstants.usertypeid=="EMPLOYEE"){
+      this.router.navigateByUrl('/login')
+ 
+    }
+    if(GlobalConstants.usertypeid=="MANAGER"){
+     GlobalConstants.display=true
+      this.router.navigateByUrl('/manager')
+ 
+    }
+    if(GlobalConstants.usertypeid=="TRAVEL_AGENT"){
+     this.router.navigateByUrl('/travelagent')
+ 
+   }
+   if(GlobalConstants.usertypeid=="ADMIN"){
+     this.router.navigateByUrl('/admin')
+ 
+   }
+
   }
   
 

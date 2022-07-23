@@ -15,6 +15,9 @@ import { TravelagentloginComponent } from './travelagentlogin/travelagentlogin.c
 import { EditComponent } from './edit/edit.component';
 import { AdminloginComponent } from './adminlogin/adminlogin.component';
 import { RegisterComponent } from './register/register.component';
+import { ModifyuserComponent } from './modifyuser/modifyuser.component';
+import { EditadminComponent } from './editadmin/editadmin.component';
+import { DeleteadminComponent } from './deleteadmin/deleteadmin.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +34,9 @@ import { RegisterComponent } from './register/register.component';
     EditComponent,
     AdminloginComponent,
     RegisterComponent,
+    ModifyuserComponent,
+    EditadminComponent,
+    DeleteadminComponent,
   ],
   imports: [
     BrowserModule,

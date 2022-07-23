@@ -1,2 +1,32 @@
 <p>register works!</p>
+<form #adduser1="ngForm">
+    <div class="container">
+        <label for="uname"><b>Name</b></label>
+        <input type="text" placeholder="Enter Username" name="name" required ngModel><br><br>
+    
+        <label for="psw"><b>UserName</b></label>
+        <input type="text" placeholder="Enter Password" name="uname" required ngModel><br><br>
 
+        <label for="email"><b>Email</b></label>
+        <input type="email" placeholder="Enter Email" name="email" required ngModel><br><br>
+
+        <label>UserType</label><select id="sel" ngModel name="sel">
+            <option name="EMPLOYEE" value="EMPLOYEE">EMPLOYEE</option>
+            <option name="MANAGER" value="MANAGER">MANAGER</option>
+            <option name="TRAVEL_AGENT" value="TRAVEL_AGENT">TRAVEL_AGENT</option>
+
+
+
+        </select><br><br>
+        <label for="password"><b>Password</b></label>
+        <input type="password" placeholder="Enter Username" name="pass" required ngModel><br><br>
+
+        <label for="conpass"><b>Confirm password</b></label>
+        <input type="password" placeholder="Enter Username" name="conpass" required ngModel><br><br>
+    
+        <button (click)="Add(adduser1.value)" >Add User</button><br><br>
+        <!-- <button (click)="toggle()">Back to List</button> -->
+        
+      </div>
+    
+</form> 

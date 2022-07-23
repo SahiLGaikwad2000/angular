@@ -7,80 +7,127 @@ import { Router } from '@angular/router';
   templateUrl: './adminlogin.component.html',
   styleUrls: ['./adminlogin.component.css']
 })
-export class AdminloginComponent implements OnInit  {
-  username=GlobalConstants.username
-  member:any=[]
+export class AdminloginComponent implements OnInit {
+  members:any
+  members1:any
+  display=GlobalConstants.display
 
-  async chkclick1(){
- 
-  let url="https://localhost:8000/api/JourneyTickets/GetAllRequests"
-  let obj={
-    // "id":"02-07-2022-20-43-35",
-    "id":"",
-    "loginId": GlobalConstants.auth
-  }
-  let res=await fetch(url,{
-    headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json'
-    },
-    method:"POST",
-    body:JSON.stringify(obj)
 
-    
-  })
-  let apires;
-  apires=await res.json()
-  this.member=apires
+toggledisplay(){
+  this.display=true
 }
 
-detailchk(element:any){
-  GlobalConstants.detail=element
-
- console.log(element);
-  this.router.navigateByUrl('/Details')
-  
-}
 editchk(element:any){
   GlobalConstants.detail=element
-  if(GlobalConstants.detail.currentStatus=="SUBMITTED"){
-  
-  
   this.router.navigateByUrl('/edit')
-  }
+  
 
 }
-adduser(){
-  // GlobalConstants.detail=element
+deletechk(element:any){
+  GlobalConstants.detail=element
+  this.router.navigateByUrl('/delete')
   
+
+}
+
+
+ async trq(){
   
+
   
-  this.router.navigateByUrl('/register')
+
+  let url="https://localhost:8000/api/User/GetAllRequest"
+    let res=await fetch(url)
+    let apires2;
+    apires2=await res.json()
+    console.log(apires2);
+    this.members=apires2;
+    
+  
+  }
+  modifyuser(){
+    this.router.navigateByUrl("/modify")
   }
 
-constructor(private router: Router) {}
+  detailchk(element:any){
+    GlobalConstants.detail=element
+    console.log("qqqqqq");
+    GlobalConstants.username=element.name;
+    
+    
+    console.log(GlobalConstants.detail);
+    
 
-
-
-
-// constructor(private router: Router) {}
-
-  // trq():  any {
-  //   console.log(GlobalConstants.username)
-  //   this.chkclick1()
+   console.log(element);
+    this.router.navigateByUrl('/Details')
+    
+  }
+  constructor(private router: Router) {}
    
-  // }
-  ngOnInit(){
-    console.log(GlobalConstants.username)
-    this.chkclick1()
 
+  async adduser(){
+    this.router.navigateByUrl("/register")
+
+  //   let url="https://localhost:8000/api/Authenticate/register"
+  // let obj={
+    
+  //     "name": "employee33",
+  //     "userTypeId": "EMPLOYEE",
+  //     "userId": "employee33",
+  //     "password": "@Employee33",
+  //     "loginId": "employee33@employee.com"
+  //   }
+  
+  // let res=await fetch(url,{
+  //   headers: {
+  //     'Accept': 'application/json',
+  //     'Content-Type': 'application/json'
+  //   },
+  //   method:"POST",
+  //   body:JSON.stringify(obj)
+
+    
+  // })
+  // let apires;
+  // apires=await res.json()
+  // console.log("iiiiiiiiii");
+  
+  //  console.log(apires);
+  // this.members1=apires
+  // console.log(this.members1)
+}
+
+  
+ngOnInit(): void{
+  this.display=GlobalConstants.display
+  console.log(this.display);
+  console.log(GlobalConstants.display);
+  
+    this.trq()
+  
+  
+  
+
+  // this.display=false
+  
   }
 }
-  
+
+
+
+
 
 
   
-
+    
+    
+    // return this.member
   
+
+  // constructor() { }
+
+  // ngOnInit(): void{
+
+  // }
 
 

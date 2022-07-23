@@ -1,0 +1,19 @@
+<p>deleteadmin works!</p>
+
+<h2>Are You Sure You Want To Delete?</h2>
+
+<div >
+
+    Employee Id:{{empdetail.userId}}<br><br>
+    Name:{{empdetail.name}}<br><br>
+    Employee Type:{{empdetail.userTypeId}}<br><br>
+    <!-- :{{empdetail.travelDate.split("T")[0]}} {{empdetail.travelDate.split("T")[1]}}<br><br> -->
+    Login Id:{{empdetail.loginId}}<br><br>
+    Manager :{{empdetail.managerUserId}}<br><br>
+    <button (click)="chkdelete()">Delete</button>
+
+    
+        <button (click)="route()">Back to list</button>
+    
+</div>
+
